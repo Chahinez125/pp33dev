@@ -186,25 +186,4 @@ footer nav ul {
 	margin: 2em
 }
 
-/**Filter**/
-.Filter{
-	display: flex;
-	justify-content: center;
-}
 
- .Filter button{
-	padding: 9px 15px;
-	margin: 21px 10px 51px 0px;
-	border: 1px solid #1d6154;
-	border-radius: 25px;
-	color: #1d6154;
-	font-size: 16px;
-	font-weight: 700;
-	cursor: pointer;
-	background-color: white;
-}	
-.Filter button:hover{
-	color: white;
-	background-color: #1D6154;
-
-}
