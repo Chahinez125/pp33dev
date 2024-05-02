@@ -12,10 +12,14 @@
 	<meta name="description" content="">
 	<link rel="stylesheet" href="./assets/style.css">
 	<script type="module" src="./script/script.js"></script>
+	<script src =" https://kit.fontawesome.com/d3f6a1c8dd.js " crossorigin =" anonyme "></script>
 </head>
 
 <body>
 	<header>
+		<div class="Headbar">
+			<i class="fa-solid fa-pen-to-square"></i> Mode édition
+		</div>
 		<h1>Sophie Bluel <span>Architecte d'inteérieur</span></h1>
 		<nav>
 			<ul>
@@ -43,7 +47,14 @@
 			</article>
 		</section>
 		<section id="portfolio">
+			<!--btn ouverture modal-->
+			<div class="projrt">
 			<h2>Mes Projets</h2>
+			<button class="btnOpen hidden">
+				<i class="fa-regular fa-pen-to-square"></i>
+				modifier
+			</button>
+		</div>
 			<div class="container-filtres">
 				<button class="button-filter active" id="0">Tous</button>
 			</div>

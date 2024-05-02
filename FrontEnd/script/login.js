@@ -1,6 +1,6 @@
 const form =document.querySelector('form');
 const errorMessage = document.querySelector('.errorMessage');
-
+const Headbar = document.querySelector(".Headbar");
 // Informations de conx
 //Mail : sophie.bluel@test.tld
 //MDP : S0phie
