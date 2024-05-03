@@ -1,6 +1,7 @@
+
 const form =document.querySelector('form');
 const errorMessage = document.querySelector('.errorMessage');
-const Headbar = document.querySelector(".Headbar");
+
 // Informations de conx
 //Mail : sophie.bluel@test.tld
 //MDP : S0phie
@@ -34,10 +35,16 @@ fetch ('http://localhost:5678/api/users/login', {
     .then (data => {
         if(data.token){
             window.localStorage.setItem('token', data.token);
-            window.location.href = 'index.html';
+             window.location.href = 'index.html';
         } else {
             errorMessage.style.display = 'block';
             console.log("Erreur dans l'identifiant ou le mot de passe");
         }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        errorMessage.style.display = 'block';
+
+      });
     });
-});
+    

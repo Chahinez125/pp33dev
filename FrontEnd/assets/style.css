@@ -259,7 +259,7 @@ main {
 	color: red;
 	display: none;
 }
-.Headbar {
+.HeadBar {
     display: flex;
 	justify-content: center;
 	align-items: center;
@@ -272,7 +272,6 @@ main {
 	padding: 10px 20px;
     box-sizing: border-box;
 	display: none;
-    
 }
-.Headbar i {
+.HeadBar i {
 margin-right:10px ;}
