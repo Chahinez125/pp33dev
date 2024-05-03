@@ -16,8 +16,8 @@ export function editMode(){
     if(adminconnecter){
         //afficher barre editor
         const headBar = document.querySelector('.HeadBar');
-        //headBar.style.display = 'flex';
-        headBar.classList.add("active");
+        headBar.style.display = 'flex';
+        
 
         //Suppression filtres
         const filter = document.querySelector('.container-filtres');
