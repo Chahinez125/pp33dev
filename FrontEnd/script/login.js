@@ -35,6 +35,7 @@ fetch ('http://localhost:5678/api/users/login', {
         if(data.token){
             window.localStorage.setItem('token', data.token);
              window.location.href = 'index.html';
+             
         } else {
             errorMessage.style.display = 'block';
             console.log("Erreur dans l'identifiant ou le mot de passe");
@@ -46,4 +47,4 @@ fetch ('http://localhost:5678/api/users/login', {
 
       });
     });
-    
+   

@@ -1,3 +1,4 @@
+
 // je récupere les travaux depui le backend
 //déclare une variable
 const gallery = document.querySelector(".gallery");
