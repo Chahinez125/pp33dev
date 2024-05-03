@@ -1,3 +1,4 @@
+import { editMode } from './editor';
 
 // je récupere les travaux depui le backend
 //déclare une variable
@@ -86,3 +87,4 @@ async function filterCategory() {
   });
 }
 filterCategory();
+editMode();
