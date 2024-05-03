@@ -64,6 +64,7 @@ header {
 	justify-content: space-between;
 	margin: 50px 0;
 	width: 90%;
+	
 }
 section {
 	margin: 50px 0
@@ -270,8 +271,15 @@ main {
     background-color: black;
     color: white;
 	padding: 10px 20px;
-    box-sizing: border-box;
-	display: none;
+    display: none;
+	
 }
-.HeadBar i {
-margin-right:10px ;}
+
+	
+	
+	
+	
+	
+	
+	
+

@@ -22,7 +22,6 @@ let dataForm = {
 
 // Création de la charge utile au format JSON
 const utile = JSON.stringify(dataForm)
-
 //Appel de la fonction FETCH
 fetch ('http://localhost:5678/api/users/login', {
     method: 'POST',
