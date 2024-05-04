@@ -1,4 +1,4 @@
-import { editMode } from './editor';
+import { editMode } from "./editor.js";
 
 // je récupere les travaux depui le backend
 //déclare une variable
