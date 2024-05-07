@@ -31,11 +31,8 @@ footer, header, hgroup, menu, nav, section {
 }
 
 body {
-    line-height: 1;
-    background-color: #fefef8;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+   line-height: 1;
+	position: relative;
 }
 ol, ul {
 	list-style: none;
@@ -283,24 +280,216 @@ main {
 /**btn open modal**/
 	
 .projrt {
-    display: flex; /* Utilise Flexbox */
-    align-items: center; /* Aligne les éléments verticalement au centre */
-	justify-content: center;
+	display: flex;
+    justify-content: center;
+	gap: 30px;
+	margin-bottom: 2em;
 }
 
 .projrt h2 {
     margin-right: 10px; /* Ajoute un peu d'espace entre le titre et le bouton */
 }
-.projrt button {
+/*.projrt button {
     border: none; /* Supprime le bord */
-    background-color: transparent; /* Supprime la couleur de fond */
-	margin-top: -30px;
+    /*background-color: transparent; /* Supprime la couleur de fond */
+	/*margin-top: -30px;
+}*/
+.btnOpen{
+	gap: 8px;
+	color: black;
+	background-color: white;
+	border: none;
+}
+.hidden {
+	display: none;
+}
+/********************** Première modale "Ajouter une photo" *********************/
+.overlay {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.5);
+	z-index: 1;
+  }
+
+.modal {
+	display: flex;
+	flex-direction: column;
+	width: 630px;
+	height: 688px;
+	padding: 30px;
+	position: absolute;
+	top: 575px;
+	left: 200px;
+	background-color: white;
+	border-radius: 15px;
+	z-index: 2;
 }
 
+.buttonClose{
+	display: flex;
+	justify-content: flex-end;
+	font-size: 125%;
+	border: none;
+	background-color: white;
+}
 
+.modal h3 {
+	font-family: "Work Sans";
+	font-size: 26px;
+	text-align: center;
+	margin-top: 10px;
+	margin-bottom: 50px;
+}
+
+.btnAddModale {
+	display: flex;
+	border-top: solid 1px #B3B3B3;
+	margin-top: 50px;
+	width: 420px;
+	justify-content: center;
+	align-self: center;
+}
+.btnAdd {
+	width: 240px;
+	border-radius: 60px;
+	background-color: #1D6154;
+	color: white;
+	font-size: 14px;
+	padding: 9px 49px 9px 49px;
+	font-family: "Syne";
+	font-style: normal;
+	border: none;	
+	margin-top: 30px;
+}
 	
+.addContentModal{
+	display: flex;
+	flex-direction: column;
+	width: 630px;
+	height: 688px;
+	padding: 30px;
+	position: absolute;
+	top: 575px;
+	left: 200px;
+	background-color: white;
+	border-radius: 15px;
+	z-index: 2;
+}
+
+.exitModal{
+	justify-content: space-between;
+	display: flex;
+}
+
+.arrowReturn {
+	font-size:125%;
+}
+.btnClose2 {
+	font-size: 125%;
+	border: none;
+	background-color: white;
+}
+
+.addContentModal h3 {
+	font-family: "Work Sans";
+	font-size: 26px;
+	text-align: center;
+	margin-top: 10px;
+	margin-bottom: 50px;
+}
 	
-	
-	
+#formAddPic {
+	display: flex;
+	width: 100%;
+	flex-direction: column;
+	align-items: center;
+}
+
+.addPicContainer {
+	width: 75%;
+	background: #E8F1F7;
+	border-radius: 3px;
+	padding: 15px;
+	margin-bottom: 20px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	box-sizing: border-box;
+}
+.addPicContainer i {
+	color: #B9C5CC;
+	font-size: 76px;
+	margin: 18px 0px;
+}
+.addPicContainer label {
+	background: #CBD6DC;
+	border: none;
+	border-radius: 50px;
+	font-family: 'Work Sans';
+	font-weight: 500;
+	font-size: 14px;
+	line-height: 16px;
+	color: #306685;
+	cursor: pointer;
+	text-align: center;
+	padding: 10px 50px;
+}
+.addPicContainer input {
+	display: none;
+}
+.addPicContainer p {
+	font-family: 'Work Sans';
+	font-weight: 400;
+	font-size: 12px;
+	color: #444444;
+	margin: 10px 0px 10px;
+}
+.formLabel {
+	width: 75%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	padding-bottom: 20px;
+}
+.formLabel label {
+	font-family: 'Work Sans';
+	font-weight: 500;
+	font-size: 14px;
+	color: #3D3D3D;
+	padding-bottom: 5px;
+	text-align: left;
+	margin-bottom: 10px;
+}
+.formLabel input, select {
+	height: 51px;
+	border: none;
+	background: #FFFFFF;
+	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+}
+
+.btnValidateContainer {
+	display: flex;
+	border-top: solid 1px #B3B3B3;
+	margin-top: 50px;
+	width: 420px;
+	justify-content: center;
+}
+.btnValidatePic {
+	width: 240px;
+	border-radius: 60px;
+	background-color: #1D6154;
+	color: white;
+	font-size: 14px;
+	padding: 9px 49px 9px 49px;
+	font-family: "Syne";
+	font-style: normal;
+	border: none;	
+	margin-top: 30px;
+}
 	
 
