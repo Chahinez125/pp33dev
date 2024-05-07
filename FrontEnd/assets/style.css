@@ -336,6 +336,7 @@ main {
 	font-size: 125%;
 	border: none;
 	background-color: white;
+	cursor: pointer;
 }
 
 .modal h3 {
@@ -365,6 +366,7 @@ main {
 	font-style: normal;
 	border: none;	
 	margin-top: 30px;
+	cursor: pointer;
 }
 	
 .addContentModal{
@@ -388,11 +390,13 @@ main {
 
 .arrowReturn {
 	font-size:125%;
+	cursor: pointer;
 }
 .btnClose2 {
 	font-size: 125%;
 	border: none;
 	background-color: white;
+	cursor: pointer;
 }
 
 .addContentModal h3 {
@@ -490,6 +494,7 @@ main {
 	font-style: normal;
 	border: none;	
 	margin-top: 30px;
+	cursor: pointer;
 }
 	
 
