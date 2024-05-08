@@ -85,3 +85,34 @@ export function generateWork() {
         });
     });
 }
+//je veux supprimer les work dans ma modal 
+async function deleteWorks(event, worksId){
+     // Récupérer token d'authentification depuis le stockage local
+    let mToken = window.localStorage.getItem('token')
+    //// je demande une confirmation à l'utilisateur avant de supprimer le projet
+    const deleteConfirmation = confirm("Souhaitez-vous vraiment supprimer ce projet ?");
+    // Si confirmation :
+    if (deleteConfirmation) {
+        // Effectuer une requête de suppression vers l'API avec fetch
+        fetch(`http://localhost:5678/api/works/${worksId}`, {
+            method: "DELETE", // la mthode delete pr supprimer
+            headers: {
+                Authorization: `Bearer ${mToken}`,
+            },//la reponse de ma requêtte
+        }).then(response => {
+            if (response.ok) {
+                //si la reponse ok supprimer les element
+                document.querySelectorAll(`.figure-${worksId}`).forEach((figure) => figure.remove());
+                event.preventDefault();
+                //l'affichage d'alert
+                alert("Projet supprimé !");
+                console.log("Travail supprimé");
+            } else {
+                console.error("Erreur lors de la suppression.");
+            }
+        }).catch(error => {
+            // Gérer les erreurs qui pourraient survenir pendant l'exécution de la requête
+            alert('Suppression impossible, une erreur est survenue');
+        });
+    }
+}
