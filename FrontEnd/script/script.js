@@ -1,4 +1,5 @@
 import { editMode } from "./editor.js";
+import { openModal } from "./editor.js";
 
 // je récupere les travaux depui le backend
 //déclare une variable
@@ -7,7 +8,7 @@ const containerFiltres = document.querySelector(".container-filtres");
 
 //fonction qui va recupérer mes travaux getWork j'ai async pr lui dire atten dans cette fontion tu dois attens avant de lire mon code
 //await sa veux tu attend que le fetch dois finit avant que tu l'enregistre dans response
-async function getWorks() {
+ export async function getWorks() {
   const response = await fetch("http://localhost:5678/api/works");
   //a chaque foi j'appel getWork je veux quelle me retur await.json dans notre tableau
   return await response.json();
@@ -88,3 +89,7 @@ async function filterCategory() {
 }
 filterCategory();
 editMode();
+
+const btnOpen = document.querySelector('.btnOpen')
+//Gestion des évènements pour ouverture modale 1
+btnOpen.addEventListener ('click', openModal);

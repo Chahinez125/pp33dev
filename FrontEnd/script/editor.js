@@ -1,36 +1,5 @@
 
-/*export function editOR() {
-    const userEdit = window.localStorage.getItem('token');
-    console.log( "monconsolelog",userEdit );
-/*function editOR() {
-    const userEdit = window.localStorage.getItem('token');
 
-    if (userEdit) { // Vérifie si un jeton est présent dans le stockage local
-        const headBar = document.querySelector('.HeadBar');
-        headBar.style.display = 'flex'; // Affiche la barre d'en-tête
-        
-    }
-  }*/
- /* fonction  d'exportation editMode ( ) {
-    // barre de modification édite html/css
-    const  adminconnecter  =  fenêtre . stockage local . getItem ( 'jeton' ) ;
-    if ( connecteur administrateur ) {
-        //afficher l'éditeur de barre
-        const  headBar  =  document . querySelector ( '.HeadBar' ) ;
-        barre de tête . style . affichage  =  'flex' ;
-        barre de tête . liste de classes . ajouter ( "actif" ) ;
-
-        //Filtres de suppression
-        const  filtre  =  document . querySelector ( '.container-filtres' ) ;
-        filtrer . style . display  =  "aucun" ;
-
-        // Modification du texte de connexion et de déconnexion
-        const  logOut  =  document . getElementById ( 'déconnexion' ) ;
-        Se déconnecter . innerText  = "déconnexion" ;
-        Se déconnecter . href  =  ""
-
-}
-}*/
 export function editMode(){
     //modif bar edit html/css
     const adminconnecter = window.localStorage.getItem('token');
@@ -43,12 +12,16 @@ export function editMode(){
         //Suppression filtres
         const filter = document.querySelector('.container-filtres');
         filter.style.display = "none";
+        //Ajout bouton modifier
+        const btnOpen = document.querySelector('.btnOpen');
+        btnOpen.classList.remove("hidden")
+
 
         //Changement text login en logout
         const logOut = document.getElementById('logout');
         logOut.innerText ="logout";
         logOut.href = ""
-
+    }
          //Création de la fonction Logout
     const logOutLink = document.getElementById('logout');
 
@@ -58,7 +31,16 @@ export function editMode(){
         window.localStorage.removeItem('token')
         location.reload("index.html");
     }
-}
+
 }
 
 
+//Fonction ouverture modale 1 et ajout de l'overlay
+const overlay = document.querySelector('.overlay')
+const modalContainer = document.querySelector('.modal-container')
+
+export const openModal = function () {
+    overlay.classList.remove('hidden')
+    modalContainer.classList.remove('hidden')
+    modalContainer.setAttribute('display', 'flex')
+}

@@ -60,7 +60,7 @@ header {
 	display: flex;
 	justify-content: space-between;
 	margin: 50px 0;
-	width: 90%;
+	
 	
 }
 section {
@@ -134,7 +134,7 @@ li:hover {
 }
 #portfolio h2 {
 	text-align: center;
-	margin-bottom: 1em;
+	
 }
 .gallery {
 	width: 100%;
@@ -222,9 +222,9 @@ justify-content: center;}
 	background-color: #1D6154;
 }
 /****page Login***/
-main {
+/*main {
     width: 80%;
-}
+}*/
 .main-login {
 	min-height: 650px;
 	margin-top: 90px;
@@ -299,6 +299,7 @@ main {
 	color: black;
 	background-color: white;
 	border: none;
+	cursor: pointer;
 }
 .hidden {
 	display: none;
@@ -315,9 +316,8 @@ main {
 	background: rgba(0, 0, 0, 0.5);
 	z-index: 1;
   }
-
-.modal {
-	display: flex;
+  
+.modal-container {
 	flex-direction: column;
 	width: 630px;
 	height: 688px;
@@ -330,32 +330,32 @@ main {
 	z-index: 2;
 }
 
-.buttonClose{
+.btnClose{
 	display: flex;
-	justify-content: flex-end;
 	font-size: 125%;
 	border: none;
 	background-color: white;
 	cursor: pointer;
+	width: 100%;
+	justify-content: flex-end;
 }
 
-.modal h3 {
+.modal-container h3 {
 	font-family: "Work Sans";
 	font-size: 26px;
 	text-align: center;
 	margin-top: 10px;
 	margin-bottom: 50px;
 }
-
-.btnAddModale {
+.btnAddModaleContainer {
 	display: flex;
 	border-top: solid 1px #B3B3B3;
-	margin-top: 50px;
+	margin-top: 80px;
+	margin-left: 15%;
 	width: 420px;
 	justify-content: center;
-	align-self: center;
 }
-.btnAdd {
+.btnAddmodale {
 	width: 240px;
 	border-radius: 60px;
 	background-color: #1D6154;
@@ -365,12 +365,13 @@ main {
 	font-family: "Syne";
 	font-style: normal;
 	border: none;	
-	margin-top: 30px;
+	margin-top: 40px;
 	cursor: pointer;
 }
-	
+
+/********************** Deuxième modale choix de la photo à ajouter *********************/
+
 .addContentModal{
-	display: flex;
 	flex-direction: column;
 	width: 630px;
 	height: 688px;
@@ -392,6 +393,7 @@ main {
 	font-size:125%;
 	cursor: pointer;
 }
+
 .btnClose2 {
 	font-size: 125%;
 	border: none;
@@ -406,7 +408,7 @@ main {
 	margin-top: 10px;
 	margin-bottom: 50px;
 }
-	
+
 #formAddPic {
 	display: flex;
 	width: 100%;
@@ -418,19 +420,29 @@ main {
 	width: 75%;
 	background: #E8F1F7;
 	border-radius: 3px;
-	padding: 15px;
 	margin-bottom: 20px;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	box-sizing: border-box;
 }
+
+.imagePreview{
+	display: none;
+	width: 129px;
+	height: 193px;
+	object-fit: cover;
+
+}
+
 .addPicContainer i {
 	color: #B9C5CC;
 	font-size: 76px;
 	margin: 18px 0px;
+	display: flex;
 }
-.addPicContainer label {
+
+.labelFileInput {
 	background: #CBD6DC;
 	border: none;
 	border-radius: 50px;
@@ -443,16 +455,21 @@ main {
 	text-align: center;
 	padding: 10px 50px;
 }
+
 .addPicContainer input {
 	display: none;
 }
+
 .addPicContainer p {
 	font-family: 'Work Sans';
 	font-weight: 400;
 	font-size: 12px;
 	color: #444444;
-	margin: 10px 0px 10px;
+	margin: 10px 0px 30px;
+	display: flex;
 }
+
+
 .formLabel {
 	width: 75%;
 	display: flex;
@@ -460,6 +477,7 @@ main {
 	justify-content: center;
 	padding-bottom: 20px;
 }
+
 .formLabel label {
 	font-family: 'Work Sans';
 	font-weight: 500;
@@ -469,6 +487,7 @@ main {
 	text-align: left;
 	margin-bottom: 10px;
 }
+
 .formLabel input, select {
 	height: 51px;
 	border: none;
@@ -476,13 +495,14 @@ main {
 	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
 }
 
-.btnValidateContainer {
+.ValidateContainer {
 	display: flex;
 	border-top: solid 1px #B3B3B3;
 	margin-top: 50px;
 	width: 420px;
 	justify-content: center;
 }
+
 .btnValidatePic {
 	width: 240px;
 	border-radius: 60px;
@@ -493,8 +513,11 @@ main {
 	font-family: "Syne";
 	font-style: normal;
 	border: none;	
-	margin-top: 30px;
+	margin-top: 40px;
 	cursor: pointer;
 }
-	
 
+.nav a {
+	color: #000;
+	text-decoration: none;
+}

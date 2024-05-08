@@ -60,53 +60,55 @@
 			<div class="container-filtres">
 				<button class="button-filter active" id="0">Tous</button>
 			</div>
-			<!--gestion de la modale-->
-			<div class="modal hidden">
-				<button class="buttonClose"><i class="fa-solid fa-xmark"></i></button>
-				<h3>Galerie photo</h3>
-				<div class="galleryModal"></div>
-				<!--en js dynamiquement-->
-				<div class="btnAddModal">
-					<button class="btnAdd">Ajouteer une photo</button>
-				</div>
+			<!------- Gestion de la modale -------->
+		<div class="modal-container hidden">
+			<button class="btnClose"><i class="fa-solid fa-xmark"></i></button>
+			<h3>Galerie photo</h3>
+			<div class="modalGallery">
+				<!------- Géré en JS dynamiquement -------->
 			</div>
-			<div class="addContentModal hidden">
-				<div class="exitModal">
-					<span class="arrowReturn"><i class="fa-solid fa-arrow-left"></i></span>
-					<button class="btnClose2"><i class="fa-solid fa-xmark"></i></button>
-				</div>
-				<h3>Ajout photo</h3>
-				<form id="formAddPic" method="post">
-					<div class="addPicContainer">
-						<i class="fa-regular fa-image"></i>
-						<label for="fileInput">+ Ajouter photo</label>
-						<input type="file"  id="fileInput" accept=".png, .jpeg, .jpg">
-						<p>jpg, png : 4mo max</p>
-					</div>
-	
-					<div class="formLabel">
-						<label for="title">Titre</label>
-						<input type="text" name="name" id="title">
-					</div>
-	
-					<div class="formLabel">
-						<label for="category">Catégorie</label>
-						<select name="name" id="category">
-							<option value=""></option>
-							<option value="Objets">Objets</option>
-							<option value="Appartements">Appartements</option>
-							<option value="Hôtels & restaurants">Hôtels & restaurants</option>
-						</select>
-					</div>
-	
-					<div class="btnValidateContainer">
-						<button class="btnValidatePic">Valider</button>
-					</div>
-	
-				</form>
+			<div class="btnAddModaleContainer">
+				<button class="btnAddmodale">Ajouter une photo</button>
 			</div>
-	
-				<div class="overlay"></div>
+		</div>
+
+		<div class="addContentModal hidden">
+			<div class="exitModal">
+				<span class="arrowReturn"><i class="fa-solid fa-arrow-left"></i></span>
+				<button class="btnClose2"><i class="fa-solid fa-xmark"></i></button>
+			</div>
+			<h3>Ajout photo</h3>
+			<form id="formAddPic" method="post">
+				<div class="addPicContainer">
+					<img src="" class="imagePreview" alt="Uploaded Image">
+					<i class="fa-regular fa-image"></i>
+					<label for="fileInput" class="labelFileInput">+ Ajouter photo</label>
+					<input type="file"  id="fileInput" accept=".png, .jpg">
+					<p>jpg, png : 4mo max</p>
+				</div>
+
+				<div class="formLabel">
+					<label for="title">Titre</label>
+					<input type="text" name="name" id="title">
+				</div>
+
+				<div class="formLabel">
+					<label for="category">Catégorie</label>
+					<select name="name" id="category">
+						<!----- géré dynamiquement en JS ------->
+					</select>
+				</div>
+				
+				<div class="ValidateContainer">
+					<button class="btnValidatePic">Valider</button>
+				</div>
+
+			</form>
+		</div>
+
+			<div class="overlay hidden"></div><!----RAJOUTER CLASS HIDDEN UNE FOIS CSS OK-->
+
+		</div>
 			<div class="gallery">
 				<!--supp tous les img pr les récuperer en js-->
 			</div>
