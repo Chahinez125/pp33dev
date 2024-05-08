@@ -2,6 +2,8 @@ import { editMode } from "./editor.js";
 import { openModal } from "./editor.js";
 import {generateWork}from "./editor.js"
 import { closeModal } from "./editor.js";
+import {openModal2} from "./editor.js";
+import { closeModal2 } from "./editor.js";
 
 
 // je récupere les travaux depui le backend
@@ -96,6 +98,8 @@ editMode();
 const btnOpen = document.querySelector('.btnOpen')
 const btnClose = document.querySelector('.btnClose')
 const overlay = document.querySelector('.overlay')
+const btnAdd = document.querySelector('.btnAddmodale')
+const btnClose2 = document.querySelector('.btnClose2')
 //Gestion des évènements pour ouverture modale 1
 btnOpen.addEventListener ('click', openModal);
 
@@ -106,3 +110,8 @@ generateWork();
 //Gestion des évènements pour fermeture modale 1
 btnClose.addEventListener('click', closeModal);
 overlay.addEventListener('click', closeModal);
+//Ouverture modale 2 au click sur bouton "Ajouter une photo"
+btnAdd.addEventListener('click', openModal2);
+//Gestion des évènements pour fermeture modale 2
+btnClose2.addEventListener('click', closeModal2)
+overlay.addEventListener('click', closeModal2);

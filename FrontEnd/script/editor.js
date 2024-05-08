@@ -116,3 +116,20 @@ async function deleteWorks(event, worksId){
         });
     }
 }
+
+//quand je clique sue btn ajouter une photo la modal2 va souvrir 
+const addModal = document.querySelector('.addContentModal')
+
+export const openModal2 = function(){
+modalContainer.classList.remove('display', 'flex')
+modalContainer.classList.add('hidden')
+addModal.classList.remove('hidden')
+addModal.classList.add('display','flex')
+}
+//Fonction fermeture modale 2
+export const closeModal2 = function(){
+    overlay.classList.add('hidden')
+    addModal.classList.add('hidden')
+    addModal.removeAttribute('display', 'flex')
+
+}
