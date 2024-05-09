@@ -1,3 +1,4 @@
+//Déclaration fonction fetch pour récupérer works dans modal
 async function getWorks() {
     const response = await fetch("http://localhost:5678/api/works");
     //a chaque foi j'appel getWork je veux quelle me return await.json dans notre tableau
@@ -132,4 +133,45 @@ export const closeModal2 = function(){
     addModal.classList.add('hidden')
     addModal.removeAttribute('display', 'flex')
 
+}
+
+//fonction retourne modale1 avec la fléche
+
+
+//Ajouter de la photo par la modale 
+
+export function chooseaPhoto() {
+    document.getElementById('fileInput').addEventListener('change', () => {
+      let fil = fileInput.files[0];
+      //Vérfication si fichier sélectionné est conforme pr l'ajoute d'une photo
+      let maxSize = 4 * 1024 * 1024;
+      let allFormats = ['image/jpg','image/jpeg','image/png'];
+      if(fil.size <= maxSize && allFormats.includes(fil.type)) {
+        //Création du FileReader pour lire le nouveau ficher
+        const Reader = new FileReader();
+        //Lecture et traitement du nouveau fichier
+          Reader.onload = () => { 
+          const imagePreview = document.querySelector('.imagePreview')
+          const iconAddPic = document.querySelector('.fa-image')
+          const labelInputFile = document.querySelector('.labelFileInput')
+          const textInputFile = document.querySelector('.addPicContainer p')
+          //Affichage du nouveau fichier
+          iconAddPic.style.display = 'none';
+          labelInputFile.style.display = 'none';
+          textInputFile.style.display = 'none';
+          
+          imagePreview.src = Reader.result
+          imagePreview.style.display = 'flex';
+        }
+        Reader.readAsDataURL(fil)
+
+        //Message d'erreur si le taille de la photo ne correspond pas 
+      } else if (fil.size > maxSize){
+        alert("L'image est trop volumineuse")
+        //Message d'erreur si le format de la photo ne correspond pas
+      } else {
+        alert("Le format du projet ne correspond pas !")
+        console("Le format du projet ne correspond pas !")
+      };
+    });
 }

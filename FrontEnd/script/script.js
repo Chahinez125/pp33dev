@@ -4,7 +4,7 @@ import {generateWork}from "./editor.js"
 import { closeModal } from "./editor.js";
 import {openModal2} from "./editor.js";
 import { closeModal2 } from "./editor.js";
-
+import {chooseaPhoto} from "./editor.js";
 
 // je récupere les travaux depui le backend
 //déclare une variable
@@ -115,3 +115,7 @@ btnAdd.addEventListener('click', openModal2);
 //Gestion des évènements pour fermeture modale 2
 btnClose2.addEventListener('click', closeModal2)
 overlay.addEventListener('click', closeModal2);
+
+
+
+chooseaPhoto();
