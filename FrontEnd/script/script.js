@@ -5,7 +5,7 @@ import { closeModal } from "./editor.js";
 import {openModal2} from "./editor.js";
 import { closeModal2 } from "./editor.js";
 import {chooseaPhoto} from "./editor.js";
-
+import { NewFile } from "./editor.js";
 // je récupere les travaux depui le backend
 //déclare une variable
 const gallery = document.querySelector(".gallery");
@@ -119,3 +119,5 @@ overlay.addEventListener('click', closeModal2);
 
 
 chooseaPhoto();
+
+NewFile();

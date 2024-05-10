@@ -175,3 +175,43 @@ export function chooseaPhoto() {
       };
     });
 }
+
+export function NewFile () {
+    const btnPictureValidate = document.querySelector('.btnValidatePic')
+    const fileInput = document.getElementById('fileInput')
+    const titleInput = document.getElementById('title')
+    const categoryInput = document.getElementById('category');
+    let mToken = window.localStorage.getItem('token');
+
+    //Ajout événement au click du bouton valider
+    btnPictureValidate.addEventListener('click', async (event) => {
+      event.preventDefault();
+      if (fileInput.value === "" || titleInput.value.trim() === "" || categoryInput.value === "") {
+        alert("Il semblerait que certaines informations soient manquantes")
+      } else { 
+        const postConfirmationProjet = confirm("Voulez-vous importer votre projet ?")
+      //Si le bouton "oui" est cliqué :
+      if(postConfirmationProjet) {
+        const formData = new FormData ();
+          //Récupération de l'ID catégory
+          formData.append('category', categoryInput.value);
+          formData.append('image', fileInput.files[0]);
+          formData.append('title', titleInput.value);
+        const response = await fetch("http://localhost:5678/api/works", {
+          method: "POST",
+          headers: {
+            accept: "application/json",
+            Authorization: `Bearer ${mToken}`,
+            },
+          body: formData,
+        });
+          if (response.ok) {
+            alert("Projet ajouté !");
+            console.log(titleInput.value, " ajouté !")
+           
+           
+          };
+        };
+      };
+    });
+  }
