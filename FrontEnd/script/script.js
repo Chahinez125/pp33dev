@@ -6,6 +6,7 @@ import {openModal2} from "./editor.js";
 import { closeModal2 } from "./editor.js";
 import {chooseaPhoto} from "./editor.js";
 import { NewFile } from "./editor.js";
+
 // je récupere les travaux depui le backend
 //déclare une variable
 const gallery = document.querySelector(".gallery");
@@ -116,7 +117,28 @@ btnAdd.addEventListener('click', openModal2);
 btnClose2.addEventListener('click', closeModal2)
 overlay.addEventListener('click', closeModal2);
 
+// Ajout de la partie catégorie de la modale en JS
+async function createOptionCat () {
 
+  const category = await getCategory();
+  //Récupération des categories
+  const optionCategory = document.getElementById('category')
+  optionCategory.innerHTML ='';
+  //Création de la catégorie vide avant choix
+  const Option = document.createElement ('option');
+  Option.value = '';
+  Option.textContent = '';
+  optionCategory.appendChild(Option);
+  // Création de cahque categorie dans le formulaire de la modale d'ajout
+  category.forEach (function(category){
+      const option = document.createElement ('option');
+      option.value = category.id;
+      option.textContent = category.name
+      optionCategory.appendChild(option);
+  })
+}
+
+createOptionCat();
 
 chooseaPhoto();
 
