@@ -215,8 +215,14 @@ export function NewFile () {
           if (response.ok) {
             alert("Projet ajouté !");
             console.log(titleInput.value, " ajouté !")
+        const newWork = await response.json();
+        addWorkToModal(newWork);
+        addorkToIndex(newWork);
+
            //la modal va se vider 
-            EmptyModal2()
+            EmptyModal2();
+            //retour modal1 pr vue Gallery
+            returnModal1();
           };
         };
       };
@@ -248,3 +254,45 @@ export function NewFile () {
     }
     
     
+//Fonction d'ajout du nouveau fichier a la gallery modale
+
+async function addWorkToModal (newWork) {
+    const newWorkId = newWork.id
+    const modalGallery = document.querySelector('.modalGallery')
+    //Création balise <figure>
+    const figure = document.createElement ('figure')
+    figure.classList.add (`figure-${newWork.id}`);
+    //Création balise <img>
+    const imgNewWork = document.createElement('img');
+    imgNewWork.src = newWork.imageUrl;
+    imgNewWork.alt = newWork.title;
+    //Création balise <i>
+    const Icon = document.createElement("div");
+    Icon.classList.add("trash-icon");
+   Icon.innerHTML= `<i class="fa-solid fa-trash-can" id="${newWork.id}"></i>`;
+    // Affichage des "work" séléctionné en les rattachant à la balise <div> du HTML
+    modalGallery.appendChild(figure);
+    figure.appendChild(imgNewWork);
+    figure.appendChild(Icon);
+  
+    Icon.addEventListener('click', async (event) => {
+      deleteWorks(event, newWorkId)
+  });
+  }
+  
+  async function addorkToIndex(newWork) {
+    const gallery = document.querySelector('.gallery')
+    //Création balise <figure>
+    const figure = document.createElement ('figure')
+    figure.classList.add (`figure-${newWork.id}`);
+    //Création balise <img> et <figcaption>
+    const imageNewWork = document.createElement('img');
+    imageNewWork.src = newWork.imageUrl;
+    imageNewWork.alt = newWork.title;
+    const figCaption = document.createElement('figcaption');
+    figCaption.innerText = newWork.title;
+    // Affichage des "work" séléctionné en les rattachant à la balise <div> du HTML
+    gallery.appendChild(figure);
+    figure.appendChild(imageNewWork);
+    figure.appendChild(figCaption);
+  }
