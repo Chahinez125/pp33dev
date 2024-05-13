@@ -138,6 +138,37 @@ async function createOptionCat () {
   })
 }
 
+//Fonction pour vérifier si tous les champs sont remplis
+function checkALLfields() {
+  const photoForm = document.getElementById('fileInput').value.trim();
+  const titleForm = document.getElementById('title').value.trim();
+  const categoryForm = document.getElementById('category').value.trim();
+  return photoForm !== "" && titleForm !== "" && categoryForm !== "";
+}
+
+//Fonction pour activer ou désactiver le bouton de validation en fonction de l'état des champs
+function updateValidationBtn() {
+  const validateBtn = document.querySelector('.btnValidatePic');
+  validateBtn.disabled = !checkALLfields();
+  // Changer le style du bouton en fonction de son état
+  if (validateBtn.disabled) {
+      validateBtn.style.background = "#A7A7A7";
+      validateBtn.style.cursor = "default";
+  } else {
+      validateBtn.style.background = "#1D6154";
+      validateBtn.style.cursor = "pointer";
+  }
+}
+// Ajouter des écouteurs d'événements pour chaque champ de formulaire
+document.getElementById('fileInput').addEventListener('input', updateValidationBtn);
+document.getElementById('title').addEventListener('input', updateValidationBtn);
+document.getElementById('category').addEventListener('input', updateValidationBtn);
+
+
+// Appeler la fonction d'activation/désactivation initiale du bouton de validation
+updateValidationBtn();
+
+
 createOptionCat();
 
 chooseaPhoto();
