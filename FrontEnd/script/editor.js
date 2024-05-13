@@ -137,6 +137,11 @@ export const closeModal2 = function(){
 
 //fonction retourne modale1 avec la fléche
 
+export const returnModal1 = function () {
+    
+    closeModal2();
+    openModal();
+  }
 
 //Ajouter de la photo par la modale 
 

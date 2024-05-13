@@ -6,6 +6,7 @@ import {openModal2} from "./editor.js";
 import { closeModal2 } from "./editor.js";
 import {chooseaPhoto} from "./editor.js";
 import { NewFile } from "./editor.js";
+import { returnModal1 } from "./editor.js";
 
 // je récupere les travaux depui le backend
 //déclare une variable
@@ -101,6 +102,7 @@ const btnClose = document.querySelector('.btnClose')
 const overlay = document.querySelector('.overlay')
 const btnAdd = document.querySelector('.btnAddmodale')
 const btnClose2 = document.querySelector('.btnClose2')
+const arrwReturn = document.querySelector('.arrowReturn')
 //Gestion des évènements pour ouverture modale 1
 btnOpen.addEventListener ('click', openModal);
 
@@ -116,6 +118,8 @@ btnAdd.addEventListener('click', openModal2);
 //Gestion des évènements pour fermeture modale 2
 btnClose2.addEventListener('click', closeModal2)
 overlay.addEventListener('click', closeModal2);
+//Gestion des évènements pour retour modale1
+arrwReturn.addEventListener('click', returnModal1)
 
 // Ajout de la partie catégorie de la modale en JS
 async function createOptionCat () {
