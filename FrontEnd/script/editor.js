@@ -49,6 +49,7 @@ export const openModal = function () {
     overlay.classList.remove("hidden");
     modalContainer.classList.remove("hidden");
     modalContainer.setAttribute("display", "flex");
+    EmptyModal2()
 };
 
 //Fonction fermeture modale
@@ -56,6 +57,7 @@ export const closeModal = function () {
     overlay.classList.add("hidden");
     modalContainer.classList.add("hidden");
     modalContainer.removeAttribute("display", "flex");
+    EmptyModal2()
 
 }
 
@@ -138,7 +140,7 @@ export const closeModal2 = function(){
 //fonction retourne modale1 avec la fléche
 
 export const returnModal1 = function () {
-    
+    EmptyModal2()
     closeModal2();
     openModal();
   }
@@ -213,10 +215,36 @@ export function NewFile () {
           if (response.ok) {
             alert("Projet ajouté !");
             console.log(titleInput.value, " ajouté !")
-           
-           
+           //la modal va se vider 
+            EmptyModal2()
           };
         };
       };
     });
   }
+
+  //quand je ferme la modale et je retourne sur la gallery modale je mi une fonction pour la vider 
+  function EmptyModal2() {
+    const image = document.querySelector('.imagePreview')
+    const iconAddPic = document.querySelector('.fa-image')
+    const labelInputFile = document.querySelector('.labelFileInput')
+    const textInputFile = document.querySelector('.addPicContainer p')
+    const title = document.getElementById('title');
+    const categoryForm = document.getElementById('category');
+    
+    image.style.display = 'none'
+    title.value = ""
+    categoryForm.value = ""
+    
+    iconAddPic.style.display = 'flex';
+    labelInputFile.style.display = 'flex';
+    textInputFile.style.display = 'flex';
+    
+    const validateBtn = document.querySelector('.btnValidatePic');
+    validateBtn.disabled = true 
+    validateBtn.style.background = "#A7A7A7";
+    validateBtn.style.cursor = "default"
+    
+    }
+    
+    
