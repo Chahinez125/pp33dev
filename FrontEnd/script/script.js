@@ -17,7 +17,7 @@ const containerFiltres = document.querySelector(".container-filtres");
 //await sa veux tu attend que le fetch dois finit avant que tu l'enregistre dans response
  export async function getWorks() {
   const response = await fetch("http://localhost:5678/api/works");
-  //a chaque foi j'appel getWork je veux quelle me retur await.json dans notre tableau
+  //a chaque foi j'appel getWork je veux quelle me retourne await.json dans notre tableau
   return await response.json();
 }
 

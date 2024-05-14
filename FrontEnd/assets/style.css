@@ -254,6 +254,11 @@ justify-content: center;}
   #login-link {
 	cursor: pointer;
   }
+  .Loginfooter li{
+	font-size: 14px;
+	margin-top: 18em;
+	
+}
   
 
 /**********Message erreur suite login********/
@@ -266,19 +271,20 @@ justify-content: center;}
 }
 
 .HeadBar {
-	width: 100%;
-    height: 50px;
+	width: 1440px;
+	position: relative;
+	left: -150px;
+    height: 35px;
     align-items: center;
     justify-content: center;
     background-color: black;
     color: white;
     gap: 10px;
     display: none;
-   
+
 	
 }
 /**btn open modal**/
-	
 .projrt {
 	display: flex;
     justify-content: center;
