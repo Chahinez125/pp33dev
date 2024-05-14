@@ -72,7 +72,7 @@ async function filterCategory() {
   console.log(workss);
   const buttons = document.querySelectorAll(".container-filtres button");
   buttons.forEach((button) => {
-    //pr chaque btn en le selectionne et en va ecouter l'evenement qui va jouet c'est ta dire par ex a chaque foi je clique sur boutton ya l'affichage de l'id
+    //pr chaque btn en le selectionne et en va ecouter l'evenement qui va jouet c'est ta dire par ex a chaque foi je clique sur boutton il y a l'affichage de l'id
     button.addEventListener("click", (e) => {
       const btnId = e.target.id; //a chaque clique en à une inf qui nous donne l'id de cat
 
