@@ -1,16 +1,16 @@
 //Déclaration fonction fetch pour récupérer works dans modal
 async function getWorks() {
     const response = await fetch("http://localhost:5678/api/works");
-    //a chaque foi j'appel getWork je veux quelle me return await.json dans notre tableau
+
     return await response.json();
 }
-//Création fonction pour vider la gallerie de la modale
+
 const modalGallery = document.querySelector(".modalGallery");
 function resetGallery() {
     modalGallery.innerHTML = "";
 }
 export function editMode() {
-    //modif bar edit html/css
+   
     const adminconnecter = window.localStorage.getItem("token");
     if (adminconnecter) {
         //afficher barre editor
@@ -30,18 +30,18 @@ export function editMode() {
         logOut.innerText = "logout";
         logOut.href = "";
     }
-    //Création de la fonction Logout
+   
     const logOutLink = document.getElementById("logout");
 
     logOutLink.addEventListener("click", logout);
-    //Lancement de la fonction logout avec redirection sur l'index.HTML et suppresion du Token
+    
     function logout() {
         window.localStorage.removeItem("token");
         location.reload("index.html");
     }
 }
 
-//Fonction ouverture modale 1 et ajout de l'overlay
+
 const overlay = document.querySelector(".overlay");
 const modalContainer = document.querySelector(".modal-container");
 
@@ -77,7 +77,7 @@ export function generateWork() {
             const trashIcon = document.createElement("div");
             trashIcon.classList.add("trash-icon");
             trashIcon.innerHTML = `<i class="fa-solid fa-trash-can" id="${work.id}"></i>`;
-            // Affichage des "work" séléctionné en les rattachant à la balise <div> du HTML
+       
             modalGallery.appendChild(figure);
             figure.appendChild(imageWork);
             figure.appendChild(trashIcon);
@@ -90,21 +90,21 @@ export function generateWork() {
 }
 //je veux supprimer les work dans ma modal 
 async function deleteWorks(event, worksId){
-     // Récupérer token d'authentification depuis le stockage local
+    
     let mToken = window.localStorage.getItem('token')
-    //// je demande une confirmation à l'utilisateur avant de supprimer le projet
+ 
     const deleteConfirmation = confirm("Souhaitez-vous vraiment supprimer ce projet ?");
-    // Si confirmation :
+   
     if (deleteConfirmation) {
-        // Effectuer une requête de suppression vers l'API avec fetch
+      
         fetch(`http://localhost:5678/api/works/${worksId}`, {
             method: "DELETE", // la mthode delete pr supprimer
             headers: {
                 Authorization: `Bearer ${mToken}`,
-            },//la reponse de ma requêtte
+            },
         }).then(response => {
             if (response.ok) {
-                //si la reponse ok supprimer les element
+      
                 document.querySelectorAll(`.figure-${worksId}`).forEach((figure) => figure.remove());
                 event.preventDefault();
                 //l'affichage d'alert
@@ -114,13 +114,13 @@ async function deleteWorks(event, worksId){
                 console.error("Erreur lors de la suppression.");
             }
         }).catch(error => {
-            // Gérer les erreurs qui pourraient survenir pendant l'exécution de la requête
+        
             alert('Suppression impossible, une erreur est survenue');
         });
     }
 }
 
-//quand je clique sue btn ajouter une photo la modal2 va souvrir 
+
 const addModal = document.querySelector('.addContentModal')
 
 export const openModal2 = function(){
@@ -129,7 +129,7 @@ modalContainer.classList.add('hidden')
 addModal.classList.remove('hidden')
 addModal.classList.add('display','flex')
 }
-//Fonction fermeture modale 2
+
 export const closeModal2 = function(){
     overlay.classList.add('hidden')
     addModal.classList.add('hidden')
@@ -150,7 +150,7 @@ export const returnModal1 = function () {
 export function chooseaPhoto() {
     document.getElementById('fileInput').addEventListener('change', () => {
       let fil = fileInput.files[0];
-      //Vérfication si fichier sélectionné est conforme pr l'ajoute d'une photo
+     
       let maxSize = 4 * 1024 * 1024;
       let allFormats = ['image/jpg','image/jpeg','image/png'];
       if(fil.size <= maxSize && allFormats.includes(fil.type)) {
@@ -229,7 +229,7 @@ export function NewFile () {
     });
   }
 
-  //quand je ferme la modale et je retourne sur la gallery modale je mi une fonction pour la vider 
+
   function EmptyModal2() {
     const image = document.querySelector('.imagePreview')
     const iconAddPic = document.querySelector('.fa-image')
@@ -266,11 +266,11 @@ async function addWorkToModal (newWork) {
     const imgNewWork = document.createElement('img');
     imgNewWork.src = newWork.imageUrl;
     imgNewWork.alt = newWork.title;
-    //Création balise <i>
+
     const Icon = document.createElement("div");
     Icon.classList.add("trash-icon");
    Icon.innerHTML= `<i class="fa-solid fa-trash-can" id="${newWork.id}"></i>`;
-    // Affichage des "work" séléctionné en les rattachant à la balise <div> du HTML
+
     modalGallery.appendChild(figure);
     figure.appendChild(imgNewWork);
     figure.appendChild(Icon);
@@ -291,7 +291,7 @@ async function addWorkToModal (newWork) {
     imageNewWork.alt = newWork.title;
     const figCaption = document.createElement('figcaption');
     figCaption.innerText = newWork.title;
-    // Affichage des "work" séléctionné en les rattachant à la balise <div> du HTML
+  
     gallery.appendChild(figure);
     figure.appendChild(imageNewWork);
     figure.appendChild(figCaption);

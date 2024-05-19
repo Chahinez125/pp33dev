@@ -9,15 +9,13 @@ import { NewFile } from "./editor.js";
 import { returnModal1 } from "./editor.js";
 
 // je récupere les travaux depui le backend
-//déclare une variable
+
 const gallery = document.querySelector(".gallery");
 const containerFiltres = document.querySelector(".container-filtres");
 
-//fonction qui va recupérer mes travaux getWork j'ai async pr lui dire atten dans cette fontion tu dois attens avant de lire mon code
-//await sa veux tu attend que le fetch dois finit avant que tu l'enregistre dans response
  export async function getWorks() {
   const response = await fetch("http://localhost:5678/api/works");
-  //a chaque foi j'appel getWork je veux quelle me retourne await.json dans notre tableau
+
   return await response.json();
 }
 
@@ -44,7 +42,7 @@ function createWork(work) {
   gallery.appendChild(figure);
 }
 
-/***cette function pour afficher les bouttons par catégories */
+/*** afficher les bouttons par catégories */
 /*Récupere le tableaux de gatégorie*/
 async function getCategory() {
   const response = await fetch("http://localhost:5678/api/categories");
@@ -56,7 +54,7 @@ async function displayCategoriesBouttons() {
   const catégorys = await getCategory();
   console.log(catégorys);
   catégorys.forEach((catégory) => {
-    //crée une varible pr appeler btn
+
     const btn = document.createElement("button");
     //btn.classList.add(".container-filters");
     btn.textContent = catégory.name;
@@ -67,19 +65,16 @@ async function displayCategoriesBouttons() {
 displayCategoriesBouttons();
 //filtré au clique sur le btn par catégories
 async function filterCategory() {
-  //je vais récupere tableaux qui contien tous les travaux
+  
   const workss = await getWorks();
   console.log(workss);
   const buttons = document.querySelectorAll(".container-filtres button");
   buttons.forEach((button) => {
-    //pr chaque btn en le selectionne et en va ecouter l'evenement qui va jouet c'est ta dire par ex a chaque foi je clique sur boutton il y a l'affichage de l'id
-    button.addEventListener("click", (e) => {
-      const btnId = e.target.id; //a chaque clique en à une inf qui nous donne l'id de cat
 
-      //maintenant je vaux que a chaqque click avant de genere des autre image je veux qu'il me les supprime avant de me donner des nouvelle resultat
-      //sa veux dire actualiser la gallerie  je dit a ma gallery de temettre a 0 donne 0 resultat
+    button.addEventListener("click", (e) => {
+      const btnId = e.target.id;
       gallery.innerHTML = "";
-      //la je vais faire un conditions si mon id et défferent de 0
+      
       if (btnId !== "0") {
         const tryCategory = workss.filter((work) => {
           return work.categoryId == btnId;
@@ -110,15 +105,15 @@ btnOpen.addEventListener ('click', openModal);
 //Ajout des works dans modale
 generateWork();
 
-//Gestion des évènements pour fermeture modale 1
+
 btnClose.addEventListener('click', closeModal);
 overlay.addEventListener('click', closeModal);
-//Ouverture modale 2 au click sur bouton "Ajouter une photo"
+
 btnAdd.addEventListener('click', openModal2);
-//Gestion des évènements pour fermeture modale 2
+
 btnClose2.addEventListener('click', closeModal2)
 overlay.addEventListener('click', closeModal2);
-//Gestion des évènements pour retour modale1
+
 arrwReturn.addEventListener('click', returnModal1)
 
 // Ajout de la partie catégorie de la modale en JS
@@ -128,12 +123,12 @@ async function createOptionCat () {
   //Récupération des categories
   const optionCategory = document.getElementById('category')
   optionCategory.innerHTML ='';
-  //Création de la catégorie vide avant choix
+ 
   const Option = document.createElement ('option');
   Option.value = '';
   Option.textContent = '';
   optionCategory.appendChild(Option);
-  // Création de cahque categorie dans le formulaire de la modale d'ajout
+ 
   category.forEach (function(category){
       const option = document.createElement ('option');
       option.value = category.id;
@@ -150,7 +145,6 @@ function checkALLfields() {
   return photoForm !== "" && titleForm !== "" && categoryForm !== "";
 }
 
-//Fonction pour activer ou désactiver le bouton de validation en fonction de l'état des champs
 function updateValidationBtn() {
   const validateBtn = document.querySelector('.btnValidatePic');
   validateBtn.disabled = !checkALLfields();
@@ -169,7 +163,6 @@ document.getElementById('title').addEventListener('input', updateValidationBtn);
 document.getElementById('category').addEventListener('input', updateValidationBtn);
 
 
-// Appeler la fonction d'activation/désactivation initiale du bouton de validation
 updateValidationBtn();
 
 
