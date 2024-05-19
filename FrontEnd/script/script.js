@@ -74,7 +74,10 @@ async function filterCategory() {
     button.addEventListener("click", (e) => {
       const btnId = e.target.id;
       gallery.innerHTML = "";
-      
+      buttons.forEach((btn) => {
+        btn.classList.remove('active-button');
+      });
+      button.classList.add('active-button');
       if (btnId !== "0") {
         const tryCategory = workss.filter((work) => {
           return work.categoryId == btnId;

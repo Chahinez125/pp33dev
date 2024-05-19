@@ -222,6 +222,11 @@ justify-content: center;}
 	color: white;
 	background-color: #1D6154;
 }
+.container-filtres button:active,
+.container-filtres button.active-button {
+	color: white;
+	background-color: #1D6154;
+}
 /****page Login***/
 /*main {
     width: 80%;
